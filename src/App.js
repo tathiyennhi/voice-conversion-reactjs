@@ -1,6 +1,7 @@
 import React from "react";
 import AudioPlayer from "./AudioPlayer/AudioPlayer"; 
 import "./App.css";
+import OutputPlayer from "./OutputPlayer/OutputPlayer";
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
       <AudioPlayer />
       <br></br>
       <AudioPlayer />
-      <button className="convertButton">Convert</button>
+      {/* <button className="convertButton">Convert</button> */}
+      <OutputPlayer/>
     </div>
   );
 }
