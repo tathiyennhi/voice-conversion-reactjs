@@ -145,6 +145,11 @@ class App extends React.Component {
                     Gửi
                   </button>
 
+                  <a href="http://127.0.0.1:5000/assets/knnvc_out.wav" target="_blank" className="custom-button start-button">
+                      Open
+                    </a>
+
+
                 </div>
               </>
             )}
@@ -163,6 +168,13 @@ class App extends React.Component {
                 <button id='submit' onClick={this.handleUpload} className="custom-button submit-button">
                   Gửi
                 </button>
+
+                
+                <a href="http://127.0.0.1:5000/assets/knnvc_out.wav" target="_blank" className="custom-button start-button">
+                      Open
+                    </a>
+               
+
               </>
             )}
 
