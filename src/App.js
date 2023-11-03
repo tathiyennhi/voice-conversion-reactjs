@@ -13,7 +13,8 @@ class App extends React.Component {
       activeTab: '1',
       recordState: null,
       audioData: null,
-      audioDataRef: null
+      audioDataRef: null,
+      audioResult: null
     };
   }
 
@@ -85,6 +86,8 @@ class App extends React.Component {
       .catch((error) => {
         console.error('Upload failed', error);
       });
+
+    this.setState({audioResult: 'http://127.0.0.1:5000/assets/knnvc_out.wav'})
   };
 
   render() {
@@ -139,16 +142,33 @@ class App extends React.Component {
                   <div>
                     <h5>Ref Voice</h5>
                     <input type='file' accept='audio/wav' onChange={this.handleFileUpload} classname='custom-file-input' />
+                    <div>
+                      <audio
+                        id='audio'
+                        controls
+                        src={this.state.audioDataRef ? this.state.audioDataRef.url : null}
+                        style={{ margin: '10px' }}
+                      ></audio>
+                    </div>
+
+
                   </div>
 
                   <button id='submit' onClick={this.handleUpload} className="custom-button submit-button">
                     Gửi
                   </button>
 
-                  <a href="http://127.0.0.1:5000/assets/knnvc_out.wav" target="_blank" className="custom-button start-button">
-                      Open
-                    </a>
 
+                  <div>
+                    <h5>Result</h5>
+
+                    <audio
+                      id='audio'
+                      controls
+                      src={this.state.audioResult ? this.state.audioResult.url : null}
+                      style={{ margin: '10px' }}
+                    ></audio>
+                  </div>
 
                 </div>
               </>
@@ -159,21 +179,45 @@ class App extends React.Component {
                 <div>
                   <h5>Src Voice</h5>
                   <input type='file' accept='audio/wav' onChange={this.handleFileUploadSrc} classname='custom-file-input' />
+                  <div>
+                    <audio
+                      id='audio'
+                      controls
+                      src={this.state.audioData ? this.state.audioData.url : null}
+                      style={{ margin: '10px' }}
+                    ></audio>
+                  </div>
                 </div>
+
+
                 <div>
                   <h5>Ref Voice</h5>
                   <input type='file' accept='audio/wav' onChange={this.handleFileUpload} classname='custom-file-input' />
+                  <div>
+                    <audio
+                      id='audio'
+                      controls
+                      src={this.state.audioDataRef ? this.state.audioDataRef.url : null}
+                      style={{ margin: '10px' }}
+                    ></audio>
+                  </div>
                 </div>
 
                 <button id='submit' onClick={this.handleUpload} className="custom-button submit-button">
                   Gửi
                 </button>
 
-                
-                <a href="http://127.0.0.1:5000/assets/knnvc_out.wav" target="_blank" className="custom-button start-button">
-                      Open
-                    </a>
-               
+
+                <div>
+                  <h5>Result</h5>
+                  {console.log(this.state.audioResult)}
+                  <audio
+                    id='audio'
+                    controls
+                    src={this.state.audioResult ? this.state.audioResult : null}
+                  ></audio>
+                </div>
+
 
               </>
             )}
